@@ -6,7 +6,13 @@ import { useSound } from "../components/use-sound";
 
 const LINE_ONE = "CREATE";
 const LINE_TWO = "DAILY";
-const CONTACT_EMAIL = "hello@budarina.design";
+const LINKS = {
+  instagram: "https://www.instagram.com/marina_uiux/",
+  contact: "https://budarina.design/links",
+  works: "https://works.budarina.design",
+  education: "https://budarina.design",
+  studio: "https://studio.budarina.design",
+};
 
 const letter = {
   hidden: { y: "110%", opacity: 0 },
@@ -77,10 +83,10 @@ function SoundIcon({ on }: { on: boolean }) {
 type Panel = "menu" | "about" | null;
 
 const MENU = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Journal", href: "#journal" },
-  { label: "Contact", href: `mailto:${CONTACT_EMAIL}` },
+  { label: "Works", href: LINKS.works },
+  { label: "Education", href: LINKS.education },
+  { label: "Studio services", href: LINKS.studio },
+  { label: "Contact", href: LINKS.contact },
 ];
 
 function Overlay({ panel, onClose }: { panel: Panel; onClose: () => void }) {
@@ -143,8 +149,13 @@ function Overlay({ panel, onClose }: { panel: Panel; onClose: () => void }) {
                   products — and keeps a daily practice of making something new. Based in Europe,
                   working with teams worldwide.
                 </p>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="about-text underline underline-offset-[0.3em] opacity-80 hover:opacity-100">
-                  {CONTACT_EMAIL}
+                <a
+                  href={LINKS.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="about-text underline underline-offset-[0.3em] opacity-80 hover:opacity-100"
+                >
+                  @marina_uiux
                 </a>
               </motion.div>
             )}
@@ -224,7 +235,7 @@ function Index() {
               <SoundIcon on={sound.on} />
             </button>
             <a
-              href={`mailto:${CONTACT_EMAIL}`}
+              href={LINKS.contact}
               className="ui-pill mono flex items-center justify-center bg-[#d7d4d4] text-[#202020] transition hover:bg-[#c9c5c5] active:scale-[0.97]"
             >
               CONTACT
