@@ -5,6 +5,8 @@ cd "$(dirname "$0")/packages/web"
 rm -rf dist
 VITE_BASE=/koi-hero/ bunx vite build
 cd dist
+# the Runable analytics script only exists on Runable hosting
+sed -i 's#<script[^>]*src="/runable.js"[^>]*></script>##' index.html
 touch .nojekyll
 git init -q -b gh-pages
 git add -A
