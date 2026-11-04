@@ -116,9 +116,9 @@ function Overlay({ panel, onClose }: { panel: Panel; onClose: () => void }) {
             onClick={onClose}
             className="absolute inset-0 cursor-default"
           />
-          <div className="mono relative w-full max-w-[64vw] px-[4vw] text-white">
+          <div className="mono overlay-body relative w-full text-white">
             {panel === "menu" ? (
-              <ul className="flex flex-col gap-[1.2vw]">
+              <ul className="menu-list flex flex-col">
                 {MENU.map((item, i) => (
                   <motion.li
                     key={item.label}
@@ -143,7 +143,7 @@ function Overlay({ panel, onClose }: { panel: Panel; onClose: () => void }) {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.08, duration: 0.45, ease: "easeOut" }}
-                className="flex flex-col gap-[2vw]"
+                className="about-body flex flex-col"
               >
                 <p className="display about-title leading-none">About</p>
                 <p className="about-text max-w-[40ch] leading-[1.5] normal-case">
@@ -175,7 +175,7 @@ function Index() {
   const sound = useSound();
 
   return (
-    <main className="hero relative h-dvh min-h-[560px] w-full overflow-hidden select-none text-white">
+    <main className="hero relative h-dvh min-h-[320px] w-full overflow-hidden select-none text-white">
       <Ripple
         amplitude={0.5}
         speed={0.65}
@@ -208,7 +208,7 @@ function Index() {
               close();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="ui-btn absolute left-[2.5vw] top-[2.5vw] z-[30] flex items-center justify-center bg-white text-[#202020] transition hover:bg-[#e9e6e6] active:scale-95"
+            className="ui-btn absolute ui-tl z-[30] flex items-center justify-center bg-white text-[#202020] transition hover:bg-[#e9e6e6] active:scale-95"
           >
             <AsteriskIcon />
           </motion.a>
@@ -216,7 +216,7 @@ function Index() {
           {/* top-right: menu + contact */}
           <motion.div
             {...fade(1.05)}
-            className="ui-group absolute right-[2.5vw] top-[2.5vw] z-[30] flex items-center gap-[2px] bg-white p-[3px]"
+            className="ui-group absolute ui-tr z-[30] flex items-center gap-[2px] bg-white p-[3px]"
           >
             <button
               type="button"
@@ -290,7 +290,7 @@ function Index() {
           <motion.div
             {...fade(1.3)}
             aria-label="Number of fish"
-            className="ui-about ui-count mono absolute bottom-[3.5vh] left-[2.5vw] z-[30] flex items-center bg-black/30 text-white backdrop-blur-md"
+            className="ui-about ui-count mono absolute ui-bl z-[30] flex items-center bg-black/30 text-white backdrop-blur-md"
           >
             <button
               type="button"
@@ -321,7 +321,7 @@ function Index() {
             type="button"
             aria-expanded={panel === "about"}
             onClick={() => setPanel(panel === "about" ? null : "about")}
-            className="ui-about mono absolute bottom-[3.5vh] right-[2.5vw] z-[30] flex cursor-pointer items-center justify-center bg-black/30 text-white backdrop-blur-md transition hover:bg-black/45 active:scale-95"
+            className="ui-about mono absolute ui-br z-[30] flex cursor-pointer items-center justify-center bg-black/30 text-white backdrop-blur-md transition hover:bg-black/45 active:scale-95"
           >
             ABOUT
           </motion.button>

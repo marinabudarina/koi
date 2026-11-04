@@ -155,13 +155,44 @@ body { font-family: "JetBrains Mono", ui-monospace, monospace; background: #9c04
   white-space: nowrap;
 }
 
-.menu-item { font-size: min(9vw, 14vh); letter-spacing: -0.03em; }
-.about-title { font-size: min(9vw, 14vh); letter-spacing: -0.03em; }
+/* overlays (menu / about) */
+.overlay-body { max-width: 64vw; padding: 0 4vw; }
+.menu-list { gap: 1.2vw; }
+.about-body { gap: 2vw; }
+.display.menu-item { font-size: min(9vw, 14vh); letter-spacing: -0.03em; }
+.display.about-title { font-size: min(9vw, 14vh); letter-spacing: -0.03em; }
 .about-text { font-size: max(0.85rem, 1.1vw); }
 
+/* corner controls, kept clear of notches / home indicators */
+.ui-tl { left: max(2.5vw, env(safe-area-inset-left)); top: max(2.5vw, env(safe-area-inset-top)); }
+.ui-tr { right: max(2.5vw, env(safe-area-inset-right)); top: max(2.5vw, env(safe-area-inset-top)); }
+.ui-bl { left: max(2.5vw, env(safe-area-inset-left)); bottom: calc(3.5vh + env(safe-area-inset-bottom)); }
+.ui-br { right: max(2.5vw, env(safe-area-inset-right)); bottom: calc(3.5vh + env(safe-area-inset-bottom)); }
+
+/* phones (portrait) */
 @media (max-width: 640px) {
   .label { display: none; }
   .display { font-size: 31vw; }
+  .ui-tl, .ui-tr { top: max(16px, env(safe-area-inset-top)); }
+  .ui-tl, .ui-bl { left: max(16px, env(safe-area-inset-left)); }
+  .ui-tr, .ui-br { right: max(16px, env(safe-area-inset-right)); }
+  .ui-bl, .ui-br { bottom: calc(20px + env(safe-area-inset-bottom)); }
+  .overlay-body { max-width: 100vw; padding: 0 max(16px, env(safe-area-inset-left)); }
+  .menu-list { gap: 2.2vh; }
+  .about-body { gap: 3vh; }
+  .display.menu-item { font-size: clamp(2rem, 12vw, 9vh); }
+  .display.about-title { font-size: clamp(2rem, 12vw, 9vh); }
+  .about-text { font-size: 0.95rem; }
+}
+
+/* short landscape phones */
+@media (max-height: 480px) {
+  .overlay-body { padding-top: 56px; padding-bottom: 56px; }
+  .menu-list { gap: 1vh; }
+  .display.menu-item { font-size: min(8vw, 11vh); }
+  .display.about-title { font-size: min(8vw, 11vh); }
+  .about-body { gap: 1.5vh; }
+  .display { font-size: min(27vw, 40vh); }
 }
 
 .ui-btn {
