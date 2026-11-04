@@ -306,7 +306,7 @@ function Index() {
             type="button"
             aria-expanded={panel === "about"}
             onClick={() => setPanel(panel === "about" ? null : "about")}
-            className="ui-about mono absolute bottom-[3.5vh] left-1/2 z-[30] flex -translate-x-1/2 cursor-pointer items-center justify-center bg-black/30 text-white backdrop-blur-md transition hover:bg-black/45 active:scale-95"
+            className="ui-about mono absolute bottom-[3.5vh] right-[2.5vw] z-[30] flex cursor-pointer items-center justify-center bg-black/30 text-white backdrop-blur-md transition hover:bg-black/45 active:scale-95"
           >
             ABOUT
           </motion.button>
