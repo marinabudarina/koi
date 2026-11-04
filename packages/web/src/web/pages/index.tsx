@@ -128,6 +128,8 @@ function Overlay({ panel, onClose }: { panel: Panel; onClose: () => void }) {
                   >
                     <a
                       href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
                       onClick={onClose}
                       className="display menu-item inline-block leading-none transition hover:translate-x-[0.05em] hover:opacity-80"
                     >
@@ -236,6 +238,8 @@ function Index() {
             </button>
             <a
               href={LINKS.contact}
+              target="_blank"
+              rel="noreferrer"
               className="ui-pill mono flex items-center justify-center bg-[#d7d4d4] text-[#202020] transition hover:bg-[#c9c5c5] active:scale-[0.97]"
             >
               CONTACT
